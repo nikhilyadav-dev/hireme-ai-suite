@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/clerk-react";
 import { Navigate, Outlet } from "react-router-dom";
 import Header from "./components/custom/header";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   const { user, isLoaded, isSignedIn } = useUser();
@@ -12,6 +13,7 @@ function App() {
     <>
       <Header />
       <Outlet />
+      <Toaster />
     </>
   );
 }
