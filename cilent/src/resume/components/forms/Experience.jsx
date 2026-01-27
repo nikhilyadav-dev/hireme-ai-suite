@@ -18,7 +18,7 @@ function Experience() {
     endDate: "",
     workSummery: "",
   };
-  const [experinceList, setExperinceList] = useState([formField]);
+  const [experinceList, setExperinceList] = useState([]);
   const [loading, setLoading] = useState(false);
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const params = useParams();
@@ -50,9 +50,9 @@ function Experience() {
   };
 
   useEffect(() => {
-    resumeInfo?.Experience?.length > 0 &&
-      setExperinceList(resumeInfo?.Experience);
-  }, []);
+    resumeInfo?.experience?.length > 0 &&
+      setExperinceList(resumeInfo?.experience);
+  }, [resumeInfo]);
 
   useEffect(() => {
     // console.log("use effect working", resumeInfo);

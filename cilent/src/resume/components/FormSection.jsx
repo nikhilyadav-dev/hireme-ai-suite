@@ -8,7 +8,7 @@ import Education from "./forms/Education";
 import Skills from "./forms/Skills";
 
 function FormSection() {
-  const [activeFormIndex, setActiveFormIndex] = useState(4);
+  const [activeFormIndex, setActiveFormIndex] = useState(1);
   const [enabledNext, setEnabledNext] = useState(false);
   return (
     <div>

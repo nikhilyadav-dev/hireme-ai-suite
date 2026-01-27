@@ -23,7 +23,7 @@ function Skills() {
 
   useEffect(() => {
     resumeInfo && setSkillsList(resumeInfo?.skills);
-  }, []);
+  }, [resumeInfo]);
 
   const handleChange = (index, name, value) => {
     const newEntries = skillsList.slice();
