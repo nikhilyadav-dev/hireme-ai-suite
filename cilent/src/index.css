@@ -134,3 +134,24 @@
   list-style: decimal;
   padding-left: 2em;
 }
+
+@media print {
+  #no-print {
+    display: none;
+  }
+
+  #print-area {
+    display: block;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 0mm;
+}

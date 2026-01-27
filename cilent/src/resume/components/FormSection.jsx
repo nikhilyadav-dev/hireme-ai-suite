@@ -6,13 +6,25 @@ import Summery from "./forms/Summery";
 import Experience from "./forms/Experience";
 import Education from "./forms/Education";
 import Skills from "./forms/Skills";
+import { Home } from "lucide-react";
+import { Link, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
   const [enabledNext, setEnabledNext] = useState(false);
+  const { resumeId } = useParams();
   return (
     <div>
       <div className="flex justify-between items-center ">
+        <div className="flex gap-5">
+          <Link to={"/dashboard"}>
+            <Button>
+              <Home />
+            </Button>
+          </Link>
+          {/* <ThemeColor/> */}
+        </div>
         <div className="flex gap-2">
           {activeFormIndex > 1 && (
             <Button
@@ -46,6 +58,8 @@ function FormSection() {
         <Education enabledNext={(v) => setEnabledNext(v)} />
       ) : activeFormIndex == 5 ? (
         <Skills />
+      ) : activeFormIndex == 6 ? (
+        <Navigate to={"/my-resume/" + resumeId + "/view"} />
       ) : null}
     </div>
   );
