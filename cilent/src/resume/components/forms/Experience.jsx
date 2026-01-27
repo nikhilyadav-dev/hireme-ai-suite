@@ -50,7 +50,7 @@ function Experience() {
   };
 
   useEffect(() => {
-    resumeInfo?.Experience.length > 0 &&
+    resumeInfo?.Experience?.length > 0 &&
       setExperinceList(resumeInfo?.Experience);
   }, []);
 
