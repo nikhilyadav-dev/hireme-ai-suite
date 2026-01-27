@@ -9,13 +9,14 @@ import { toast } from "sonner";
 import { AIChatSession } from "./../../../../service/AIModal";
 
 const prompt =
-  "Job Title: {jobTitle} , Depends on j ob title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format";
+  "Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level and Experienced Level , in 3 -4 lines in array format, With summery and experience_level Field in JSON Format";
 function Summery({ enabledNext }) {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const [summery, setSummery] = useState();
   const [loading, setLoading] = useState(false);
   const params = useParams();
   const [aiGeneratedSummeryList, setAiGenerateSummeryList] = useState();
+  //Dought
   useEffect(() => {
     summery &&
       setResumeInfo({
@@ -34,14 +35,11 @@ function Summery({ enabledNext }) {
       const result = await AIChatSession.sendMessage(PROMPT);
       const aiText = result.response.text();
 
-      console.log("RAW AI RESPONSE:", aiText);
-
       const cleaned = aiText
         .replace(/```json/gi, "")
         .replace(/```/g, "")
         .trim();
 
-      // Parse JSON safely
       const parsed = JSON.parse(cleaned);
 
       setAiGenerateSummeryList(parsed);
