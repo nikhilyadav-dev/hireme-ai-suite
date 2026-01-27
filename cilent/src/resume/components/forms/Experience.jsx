@@ -4,6 +4,9 @@ import React, { useContext, useEffect, useState } from "react";
 import RichTextEditor from "../RichTextEditor";
 import { LoaderCircle } from "lucide-react";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
+import GlobalApi from "./../../../../service/GlobalApi";
+import { useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 function Experience() {
   const formField = {
@@ -18,6 +21,7 @@ function Experience() {
   const [experinceList, setExperinceList] = useState([formField]);
   const [loading, setLoading] = useState(false);
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
+  const params = useParams();
 
   const AddNewExperience = () => {
     setExperinceList([
@@ -63,6 +67,28 @@ function Experience() {
     newEntries[index][name] = e.target.value;
 
     setExperinceList(newEntries);
+  };
+
+  const onSave = () => {
+    setLoading(true);
+    const data = {
+      data: {
+        experience: experinceList.map(({ id, ...rest }) => rest),
+      },
+    };
+
+    console.log(experinceList);
+
+    GlobalApi.UpdateResumeDetail(params?.resumeId, data).then(
+      (res) => {
+        console.log(res);
+        setLoading(false);
+        toast("Details updated !");
+      },
+      (error) => {
+        setLoading(false);
+      },
+    );
   };
 
   return (
