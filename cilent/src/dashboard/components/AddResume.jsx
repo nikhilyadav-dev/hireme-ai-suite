@@ -35,6 +35,8 @@ function AddResume() {
       },
     };
 
+    console.log(data);
+
     GlobalApi.CreateNewResume(data).then(
       (resp) => {
         console.log(resp.data.data.documentId);

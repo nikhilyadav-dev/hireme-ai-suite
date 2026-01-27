@@ -6,14 +6,16 @@ import { useParams } from "react-router-dom";
 import GlobalApi from "./../../../../service/GlobalApi";
 import { Brain, LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
+import { AIChatSession } from "./../../../../service/AIModal";
 
+const prompt =
+  "Job Title: {jobTitle} , Depends on j ob title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format";
 function Summery({ enabledNext }) {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const [summery, setSummery] = useState();
   const [loading, setLoading] = useState(false);
   const params = useParams();
-
-  // Dought
+  const [aiGeneratedSummeryList, setAiGenerateSummeryList] = useState();
   useEffect(() => {
     summery &&
       setResumeInfo({
@@ -21,6 +23,34 @@ function Summery({ enabledNext }) {
         summery: summery,
       });
   }, [summery]);
+
+  const GenerateSummeryFromAI = async () => {
+    try {
+      setLoading(true);
+
+      const PROMPT = prompt.replace("{jobTitle}", resumeInfo?.jobTitle);
+      console.log("PROMPT:", PROMPT);
+
+      const result = await AIChatSession.sendMessage(PROMPT);
+      const aiText = result.response.text();
+
+      console.log("RAW AI RESPONSE:", aiText);
+
+      const cleaned = aiText
+        .replace(/```json/gi, "")
+        .replace(/```/g, "")
+        .trim();
+
+      // Parse JSON safely
+      const parsed = JSON.parse(cleaned);
+
+      setAiGenerateSummeryList(parsed);
+    } catch (err) {
+      console.error("AI SUMMARY PARSE ERROR:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const onSave = (e) => {
     e.preventDefault();
@@ -54,6 +84,7 @@ function Summery({ enabledNext }) {
             <label>Add Summery</label>
             <Button
               variant="outline"
+              onClick={() => GenerateSummeryFromAI()}
               type="button"
               size="sm"
               className="border-primary text-primary flex gap-2"
@@ -75,6 +106,24 @@ function Summery({ enabledNext }) {
           </div>
         </form>
       </div>
+
+      {aiGeneratedSummeryList && (
+        <div className="my-5">
+          <h2 className="font-bold text-lg">Suggestions</h2>
+          {aiGeneratedSummeryList?.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => setSummery(item?.summary)}
+              className="p-5 shadow-lg my-4 rounded-lg cursor-pointer"
+            >
+              <h2 className="font-bold my-1 text-primary">
+                Level: {item?.experience_level}
+              </h2>
+              <p>{item?.summary}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

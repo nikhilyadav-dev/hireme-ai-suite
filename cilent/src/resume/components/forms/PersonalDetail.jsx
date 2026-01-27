@@ -10,7 +10,6 @@ import { toast } from "sonner";
 
 function PersonalDetail({ enabledNext }) {
   const params = useParams();
-  console.log(params);
 
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
 
@@ -41,6 +40,7 @@ function PersonalDetail({ enabledNext }) {
     const data = {
       data: formData,
     };
+    console.log("personal data:", data, "resumeid:", params?.resumeId);
 
     GlobalApi.UpdateResumeDetail(params?.resumeId, data).then(
       (resp) => {
