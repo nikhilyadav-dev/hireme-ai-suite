@@ -1,4 +1,4 @@
-import Header from "@/components/custom/header";
+import Header from "@/components/custom/Header";
 import { Button } from "@/components/ui/button";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import ResumePreview from "@/resume/components/ResumePreview";
