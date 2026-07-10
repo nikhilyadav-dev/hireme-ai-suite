@@ -19,10 +19,10 @@ export default function Home() {
               role="alert"
             >
               <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">
-                New
+                AI
               </span>{" "}
               <span className="text-sm font-medium">
-                Tubeguruji.com All new Apps
+                Supported resume builder
               </span>
               <svg
                 className="ml-2 w-5 h-5"
@@ -64,7 +64,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://youtu.be/Q5LM985yUmQ"
+                href=""
                 className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
               >
                 <svg
@@ -250,7 +250,7 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <a
-              href="/sign-in"
+              href="/auth/sign-in"
               className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
             >
               Get Started Today
