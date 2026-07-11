@@ -1,0 +1,35 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="docGrad2" x1="8" y1="4" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- folded-corner document -->
+  <path
+    d="M11 5H29L39 15V41C39 42.6569 37.6569 44 36 44H11C9.34315 44 8 42.6569 8 41V8C8 6.34315 9.34315 5 11 5Z"
+    fill="url(#docGrad2)"
+  />
+  <path d="M29 5L39 15H31C29.8954 15 29 14.1046 29 13V5Z" fill="#FFFFFF" fill-opacity="0.35"/>
+
+  <rect x="14" y="21" width="16" height="2.4" rx="1.2" fill="white" fill-opacity="0.9"/>
+  <rect x="14" y="27" width="16" height="2.4" rx="1.2" fill="white" fill-opacity="0.6"/>
+  <rect x="14" y="33" width="10" height="2.4" rx="1.2" fill="white" fill-opacity="0.6"/>
+
+  <path
+    d="M37 27L38.8 31.2L43 33L38.8 34.8L37 39L35.2 34.8L31 33L35.2 31.2L37 27Z"
+    fill="#FBBF24"
+    stroke="white"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+
+  <!-- wordmark -->
+  <text x="56" y="30" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827">
+    Hire<tspan fill="#6366F1">Me</tspan>
+  </text>
+  <text x="56" y="41" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="500" letter-spacing="1.5" fill="#9CA3AF">
+    AI RESUME BUILDER
+  </text>
+</svg>

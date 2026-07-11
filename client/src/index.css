@@ -134,7 +134,7 @@
   list-style: decimal;
   padding-left: 2em;
 }
-
+/* 
 @media print {
   #no-print {
     display: none;
@@ -154,4 +154,4 @@
 @page {
   size: auto;
   margin: 0mm;
-}
+} */

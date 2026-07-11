@@ -5,8 +5,6 @@ import ResumePreview from "../../components/ResumePreview";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import GlobalApi from "../../../../service/GlobalApi";
 
-import dummy from "@/data/dummy";
-
 function EditResume() {
   const { resumeId } = useParams();
   const [resumeInfo, setResumeInfo] = useState();
@@ -16,7 +14,6 @@ function EditResume() {
 
   const GetResumeInfo = () => {
     GlobalApi.GetResumeById(resumeId).then((resp) => {
-      console.log(resp.data.data);
       setResumeInfo(resp.data.data);
     });
   };

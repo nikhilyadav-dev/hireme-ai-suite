@@ -61,6 +61,10 @@
       "type": "component",
       "component": "skills.skills",
       "repeatable": true
+    },
+    "themeColor": {
+      "type": "string",
+      "default": "#000000"
     }
   }
 }
