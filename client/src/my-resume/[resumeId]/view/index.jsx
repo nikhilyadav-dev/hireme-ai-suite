@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import Header from "@/components/custom/Header";
+import Header from "@/components/custom/header";
 import { Button } from "@/components/ui/button";
 import ResumePreview from "@/resume/components/ResumePreview";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
