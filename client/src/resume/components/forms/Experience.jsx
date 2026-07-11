@@ -82,6 +82,7 @@ function Experience() {
         toast("Details updated !");
       },
       (error) => {
+        toast(error.response.data.error.message);
         setLoading(false);
       },
     );

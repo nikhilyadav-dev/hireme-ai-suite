@@ -76,7 +76,8 @@ function Education() {
       }));
 
       toast.success("Education Updated");
-    } catch (err) {
+    } catch (error) {
+      toast(error.response.data.error.message);
       toast.error("Failed to update education");
     } finally {
       setLoading(false);

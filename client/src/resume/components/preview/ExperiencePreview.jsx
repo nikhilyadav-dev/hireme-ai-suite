@@ -38,7 +38,7 @@ function ExperiencePreview({ resumeInfo }) {
           </h2>
           {/* <p className="text-xs my-2">{experience.workSummery}</p> */}
           <div
-            className="text-xs my-2"
+            className="text-xs my-2  [&_ul]:list-disc [&_ul]:pl-4 [&_ol]:list-decimal [&_ol]:pl-4"
             dangerouslySetInnerHTML={{ __html: experience?.workSummery }}
           />
         </div>

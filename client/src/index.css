@@ -155,3 +155,12 @@
   size: auto;
   margin: 0mm;
 } */
+
+.resume-preview ul {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+}
+.resume-preview ol {
+  list-style-type: decimal;
+  margin-left: 1.25rem;
+}

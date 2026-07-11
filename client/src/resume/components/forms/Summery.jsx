@@ -51,7 +51,8 @@ function Summery({ enabledNext }) {
       const parsed = JSON.parse(cleaned);
 
       setAiGenerateSummeryList(parsed);
-    } catch (err) {
+    } catch (error) {
+      toast("Something went wrong generating the summary. Please try again.");
       console.error("AI SUMMARY PARSE ERROR:", err);
     } finally {
       setAiLoading(false);
@@ -76,6 +77,7 @@ function Summery({ enabledNext }) {
         setTimeout(() => setJustSaved(false), 2500);
       },
       (error) => {
+        toast(error.response.data.error.message);
         setLoading(false);
       },
     );

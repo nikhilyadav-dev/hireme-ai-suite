@@ -66,6 +66,7 @@ function PersonalDetail({ enabledNext }) {
         setTimeout(() => setJustSaved(false), 2500);
       },
       (error) => {
+        toast(error.response.data.error.message);
         setLoading(false);
       },
     );
